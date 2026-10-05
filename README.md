@@ -1,10 +1,15 @@
-# weftfit/obj
+# interactor-obj
 
-Wavefront **OBJ** source+sink **adapter** for weftfit — implements `retarget`'s
-`mesh_source` / `mesh_sink` ports over `.obj` (+ `.mtl` groups/materials).
+The weftfit adapter that reads and writes `.obj` meshes for retarget's mesh source and sink ports.
 
-- **`adapters/io/`** — `OBJReader` / `OBJWriter` / `OBJData`: mesh ⇄ OBJ,
-  preserving objects/groups, materials, UVs, normals and vertex order.
-- **`ports/`** — the contracts this adapter implements.
+## Use
 
-OBJ is the import-only fallback / parity baseline for the OpenUSD path (weftfit/stage).
+The reader and writer convert between a mesh and `.obj` with its `.mtl` materials, keeping objects, groups, materials, UVs, normals and vertex order. `ports/` holds the C ABI contracts the adapter implements, whose source is retarget.
+
+## Build and run
+
+Nothing builds here on its own. A consumer compiles the adapter sources into its own build.
+
+## Licence
+
+`LICENSE` is MIT. The reader and writer sources carry MPL-2.0 headers from the code they derive from.
